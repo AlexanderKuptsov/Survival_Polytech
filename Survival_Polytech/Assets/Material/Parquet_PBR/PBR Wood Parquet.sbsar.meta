@@ -1,0 +1,75 @@
+fileFormatVersion: 2
+guid: b24ca8578db6e5343ac24e45a0d7e22d
+ScriptedImporter:
+  fileIDToRecycleName:
+    100000: PBR Wood Parquet/PBR Wood Parquet
+    400000: PBR Wood Parquet/PBR Wood Parquet/Transform
+    2100000: mat.Parquet_1
+    2300000: PBR Wood Parquet/PBR Wood Parquet/MeshRenderer
+    2800000: Parquet_1_Base Color
+    2800002: Parquet_1_Normal
+    2800004: Parquet_1_Metallic
+    2800006: Parquet_1_ambientOcclusion
+    3300000: PBR Wood Parquet/PBR Wood Parquet/MeshFilter
+    11400000: sbsar
+    11400002: graph0
+    13500000: PBR Wood Parquet/PBR Wood Parquet/SphereCollider
+    100100000: PBR Wood Parquet
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 232528478, guid: b954f3890f55cb14dba21eeeb19a7462, type: 3}
+  mGraphInstanceData:
+  - graphLabel: Parquet_1
+    graphDescIndex: 0
+    generateAllOutputs: 0
+    generateMipMaps: 1
+    preset: " <sbspreset pkgurl=\"pkg://Parquet_1\" label=\"\" >\n </sbspreset>\n"
+    shaderName: Standard
+    outputNames: Base Color,Normal,Metallic,ambientOcclusion
+    texturePackingList:
+    - outputName: Base Color
+      alphaSource: Base Color
+    - outputName: Normal
+      alphaSource: Normal
+    - outputName: Metallic
+      alphaSource: Metallic
+    - outputName: ambientOcclusion
+      alphaSource: ambientOcclusion
+    colorSpaceList:
+    - outputName: Base Color
+      bLinear: 0
+    - outputName: Normal
+      bLinear: 1
+    - outputName: Metallic
+      bLinear: 1
+    - outputName: ambientOcclusion
+      bLinear: 1
+    inputTextureMap: []
+    targetSettingList:
+    - label: Default
+      bOverride: 0
+      bLockRatio: 1
+      bHighQuality: 0
+      textureWidth: 0
+      textureHeight: 0
+      textureFormat: 0
+      loadBehavior: 0
+    - label: Standalone
+      bOverride: 0
+      bLockRatio: 1
+      bHighQuality: 0
+      textureWidth: 0
+      textureHeight: 0
+      textureFormat: 0
+      loadBehavior: 0
+    - label: iPhone
+      bOverride: 0
+      bLockRatio: 1
+      bHighQuality: 0
+      textureWidth: 0
+      textureHeight: 0
+      textureFormat: 0
+      loadBehavior: 0

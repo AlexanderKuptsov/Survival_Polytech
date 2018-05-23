@@ -1,0 +1,124 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.AI;
+
+public class NPCGuardian : Interactable {
+
+    
+
+    public string NpcName = "???";
+    public string[] dialogue;
+
+    public int numberOfAnswersPerQuestion = 2;
+    public string[] allAnswers;
+    public int[] indexOfAnswers;
+
+    public GameObject protection;
+    private TupoiNPC tupoiNPC;
+
+    private GameObject hero;
+    private NavMeshAgent playerNavMesh;
+    private PlayerMovement playerMovement;
+
+    [HideInInspector]
+    public string[][] Answers { get; set; }
+    private bool isInteracting = false;
+
+    private bool questCompleted = false;
+
+    private void Start()
+    {
+        questCompleted = false;
+
+        tupoiNPC = GetComponent<TupoiNPC>();
+        hero = GameObject.FindGameObjectWithTag("Player");
+        playerNavMesh = hero.GetComponent<NavMeshAgent>();
+        playerMovement = hero.GetComponent<PlayerMovement>();
+        descriptionText = NpcName;
+
+        int n = numberOfAnswersPerQuestion;
+        if (n != 2 || n != 4) n = 2;
+
+        Answers = new string[allAnswers.Length / n][];
+        for (int i = 0; i < allAnswers.Length / n; i++)
+        {
+            Answers[i] = new string[n];
+            Answers[i][0] = allAnswers[n * i];
+            Answers[i][1] = allAnswers[n * i + 1];
+            if (n == 4)
+            {
+                Answers[i][2] = allAnswers[n * i + 2];
+                Answers[i][3] = allAnswers[n * i + 3];
+            }
+        }
+    }
+
+    private void LateUpdate()
+    {
+       // if (isInteracting)
+           // transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(hero.transform.position), 0.5f * Time.deltaTime); // rotation...
+    }
+
+    public override void Interact()
+    {
+        questCompleted = QuestSystem.Instance.Quests[1].Completed;
+
+        if (questCompleted)
+        {
+            DialogueSystem.Instance.AddNewMonologue(name, new string[] { "Спасибо за помощь!", "Можешь проходить.." }, this);
+            Inventory.Instance.RemoveByID("key1");
+            QuestSystem.Instance.Quests[1].GiveReward();
+            protection.SetActive(false);
+        }
+        else
+        {
+            //DialogueSystem.Instance.AddNewMonologue(NpcName, dialogue, this);
+            DialogueSystem.Instance.AddNewDialogue(NpcName, dialogue, this, Answers, indexOfAnswers, numberOfAnswersPerQuestion);
+            if (tupoiNPC != null)
+            {
+                tupoiNPC.StopWalking();
+            }
+            // rotation...
+            isInteracting = true;
+            //
+            playerNavMesh.isStopped = true;
+            Debug.Log("Interacting with " + NpcName);
+        }
+    }
+
+    public override void AfterInteract()
+    {
+		if (tupoiNPC != null) 
+		{
+        tupoiNPC.ContinueWandering();
+		}
+        playerMovement.StopFollowing();
+        playerNavMesh.ResetPath();
+        playerNavMesh.isStopped = false;
+        isInteracting = false;
+		QuestSystem.Instance.ActivateQuest(1);
+
+        if (!questCompleted) Thinking.Instance.StartThinking(1); 
+    }
+
+    void OnMouseEnter()
+    {
+        if (detect != null)
+        {
+            description.enabled = true;
+            SetText();
+            ForImageSet();
+        }
+    }
+
+    private void OnMouseExit()
+    {
+        if (detect != null)
+        {
+            description.enabled = false;
+            RemoveText();
+            ForImageRemove();
+        }
+    }
+}

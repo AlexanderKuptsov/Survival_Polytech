@@ -1,0 +1,62 @@
+# Exported from Fuse 1.3.0
+
+newmtl Hair
+illum 4
+Kd 1.00 1.00 1.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 1.00 1.00 1.00
+map_Kd NPCGirl_Hair_diffuse.png
+map_Ks NPCGirl_Hair_specular.png
+bump NPCGirl_Hair_normal.png
+map_Ns NPCGirl_Hair_gloss.png
+
+newmtl Body
+illum 4
+Kd 1.00 1.00 1.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 1.00 1.00 1.00
+map_Kd NPCGirl_Body_diffuse.png
+map_Ks NPCGirl_Body_specular.png
+bump NPCGirl_Body_normal.png
+map_Ns NPCGirl_Body_gloss.png
+
+newmtl Shoes
+illum 4
+Kd 1.00 1.00 1.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 1.00 1.00 1.00
+map_Kd NPCGirl_Shoes_diffuse.png
+map_Ks NPCGirl_Shoes_specular.png
+bump NPCGirl_Shoes_normal.png
+map_Ns NPCGirl_Shoes_gloss.png
+
+newmtl Bottom
+illum 4
+Kd 1.00 1.00 1.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 1.00 1.00 1.00
+map_Kd NPCGirl_Bottom_diffuse.png
+map_Ks NPCGirl_Bottom_specular.png
+bump NPCGirl_Bottom_normal.png
+map_Ns NPCGirl_Bottom_gloss.png
+
+newmtl Top
+illum 4
+Kd 1.00 1.00 1.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 1.00 1.00 1.00
+map_Kd NPCGirl_Top_diffuse.png
+map_Ks NPCGirl_Top_specular.png
+bump NPCGirl_Top_normal.png
+map_Ns NPCGirl_Top_gloss.png
+
